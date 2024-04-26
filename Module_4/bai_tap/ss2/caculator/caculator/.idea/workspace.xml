@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61226b44-aef7-4cfa-adf6-cd74e96eb85d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../ss2/caculator/caculator/src/main/java/triduc/com/caculator/controller/CaculatorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss2/caculator/caculator/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss2/caculator/caculator/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss2/caculator/caculator/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss2/caculator/caculator/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+    <list default="true" id="c1f62a01-f3eb-4b71-a0ce-9c6bd75150eb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/triduc/com/caculator/controller/CaculatorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1/chuyen_doi_tien_te/chuyen_doi_tien_te/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1/chuyen_doi_tien_te/chuyen_doi_tien_te/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +40,10 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
-}</component>
-  <component name="ProjectId" id="2fJncQpcTFuazUbrDwqiBgPx6II" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2fdRSvYRdcqJJtR5UDbz5SM7pSc" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -54,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/C0823L1-JV105DangTranTriDuc/C0823L1-JV105DangTranTriDuc4/Module_4/bai_tap/ss3/demo_spring_form",
+    "last_opened_file_path": "D:/C0823L1-JV105DangTranTriDuc/C0823L1-JV105DangTranTriDuc4/Module_4/bai_tap/ss2/caculator/caculator/src/main/webapp/WEB-INF",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,21 +64,21 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\C0823L1-JV105DangTranTriDuc\C0823L1-JV105DangTranTriDuc4\Module_4\bai_tap\ss1\chuyen_doi_tien_te\chuyen_doi_tien_te\src\main\webapp\WEB-INF" />
+      <recent name="D:\C0823L1-JV105DangTranTriDuc\C0823L1-JV105DangTranTriDuc4\Module_4\bai_tap\ss2\caculator\caculator\src\main\webapp\WEB-INF" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.37" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.37" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="hot-swap-classes" />
       <deployment>
-        <artifact name="Gradle : triduc.com : chuyen_doi_tien_te-1.0-SNAPSHOT.war">
+        <artifact name="Gradle : triduc.com : caculator-1.0-SNAPSHOT.war">
           <settings>
             <option name="CONTEXT_PATH" value="" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="efa82fe3-0619-44b4-8fc6-df04342a9842" />
+        <option name="BASE_DIRECTORY_NAME" value="5546dd46-ff93-4498-969a-dd3591237cdb" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -86,7 +86,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="51345" />
+        <option name="DEBUG_PORT" value="51833" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -151,7 +151,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="Gradle : triduc.com : chuyen_doi_tien_te-1.0-SNAPSHOT.war" />
+          <artifact name="Gradle : triduc.com : caculator-1.0-SNAPSHOT.war" />
         </option>
       </method>
     </configuration>
@@ -159,16 +159,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="61226b44-aef7-4cfa-adf6-cd74e96eb85d" name="Changes" comment="" />
-      <created>1713528129123</created>
+      <changelist id="c1f62a01-f3eb-4b71-a0ce-9c6bd75150eb" name="Changes" comment="" />
+      <created>1714128973476</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1713528129123</updated>
-      <workItem from="1713528130132" duration="1106000" />
-      <workItem from="1713783077585" duration="881000" />
-      <workItem from="1714105471299" duration="157000" />
-      <workItem from="1714128861465" duration="642000" />
-      <workItem from="1714129672169" duration="48000" />
+      <updated>1714128973476</updated>
+      <workItem from="1714128974553" duration="508000" />
     </task>
     <servers />
   </component>
