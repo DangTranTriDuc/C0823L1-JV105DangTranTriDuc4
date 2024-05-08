@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Product</title>
+    <th:block th:insert="~{layout/layout::library}"></th:block>
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f7f7f7;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{layout/layout::navbar}"></div>
+<div class="container">
+    <h3>Detail</h3>
+    <div class="label">ID:</div>
+    <div class="value" th:text="${product.id}"></div>
+
+    <div class="label">Name:</div>
+    <div class="value" th:text="${product.name}"></div>
+
+    <div class="label">Manufacture:</div>
+    <div class="value" th:text="${product.manufacture}"></div>
+
+    <div class="label">Price:</div>
+    <div class="value" th:text="${product.price}"></div>
+</div>
+</body>
+</html>
