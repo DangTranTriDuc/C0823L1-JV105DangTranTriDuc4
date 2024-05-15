@@ -40,6 +40,13 @@
 
     <div class="label">Price:</div>
     <div class="value" th:text="${product.price}"></div>
+
+    <button class="btn btn-primary" onclick="returnToHome()">Return</button>
 </div>
+<script>
+    function returnToHome() {
+        window.location.href = '/products';
+    }
+</script>
 </body>
 </html>

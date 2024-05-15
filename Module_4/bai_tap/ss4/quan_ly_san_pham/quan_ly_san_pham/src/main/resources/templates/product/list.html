@@ -71,8 +71,8 @@
         <td th:text="${product.name}"></td>
         <td th:text="${product.manufacture}"></td>
         <td th:text="${product.price}"></td>
-        <td><button class="btn btn-info" onclick="location.href='/products/detail?id=${product.id}'">Detail</button></td>
-        <td><button class="btn btn-primary" onclick="location.href='/products/update?id=${product.id}'">Update</button></td>
+        <td><button class="btn btn-info" th:attr="onclick='redirectToDetail(\'' + ${product.id} + '\')'">Detail</button></td>
+        <td><button class="btn btn-success" th:attr="onclick='redirectToUpdate(\'' + ${product.id} + '\')'">Update</button></td>
         <td>
             <button th:attr="onclick='deleteInfo(\'' + ${product.id} + '\', \'' + ${product.name} + '\')'" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Delete
@@ -86,6 +86,15 @@
     function deleteInfo(id,name) {
         document.getElementById("deleteId").value = id;
         document.getElementById("deleteName").innerText = name;
+    }
+</script>
+<script>
+    function redirectToDetail(productId) {
+        window.location.href = '/products/detail?id=' + productId;
+    }
+
+    function redirectToUpdate(productId) {
+        window.location.href = '/products/update?id=' + productId;
     }
 </script>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

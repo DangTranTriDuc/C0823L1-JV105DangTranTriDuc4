@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Of Blog  </title>
+    <th:block th:insert="~{layout/layout::library}"></th:block>
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f7f7f7;
+            margin: 0 auto;
+        }
+        .blog-title {
+            text-align: center;
+            font-size: 24px;
+
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{layout/layout::navbar}"></div>
+<h2 class="blog-title">
+    <div th:text="${blog.title}"></div>
+</h2>
+<div class="container">
+    <div th:text="${blog.content}"></div>
+    <div th:text="${blog.author}"></div>
+    <button class="btn btn-primary" onclick="returnToHome()">Return</button>
+</div>
+
+<script>
+    function returnToHome() {
+        window.location.href = '/blogs';
+    }
+</script>
+</body>
+</html>
