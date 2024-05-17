@@ -25,6 +25,7 @@
             font-size: 14px;
             cursor: pointer;
         }
+
         .search-form {
             display: flex;
             align-items: center;
@@ -46,40 +47,84 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
+        .table-wrapper {
+            position: relative;
+        }
+
+        .pagination-wrapper {
+            position: absolute;
+            bottom: 200px;
+            right: 0;
+            padding: 10px;
+        }
+
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+
+        .pagination-button:hover {
+            background-color: #007bff;
+        }
     </style>
 </head>
 <body>
 <div th:replace="~{layout/layout::navbar}"></div>
 <button class="button" onclick="location.href='/blogs/create'">Add Blog</button>
 <h1>Blog List</h1>
-<form action="/blogs/search" method="post" class="search-form">
+<form action="/blogs" method="get" class="search-form">
     <input name="searchName" placeholder="Enter Search Name" th:value="${param.searchName}">
     <button type="submit" class="search-button">Search</button>
 </form>
-<table class="table table-success">
-    <tr>
-        <th>STT</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Detail</th>
-        <th>Update</th>
-        <th>Delete</th>
-    </tr>
-    <tr th:each="blog,status:${blogList}">
-        <td th:text="${status.count}"></td>
-        <td th:text="${blog.title}"></td>
-        <td th:text="${blog.author}"></td>
-        <td><button class="btn btn-info" th:attr="onclick='redirectToDetail(\'' + ${blog.id} + '\')'">Detail</button></td>
-        <td><button class="btn btn-success" th:attr="onclick='redirectToUpdate(\'' + ${blog.id} + '\')'">Update</button></td>
-        <td>
-            <button th:attr="onclick='deleteInfo(\'' + ${blog.id} + '\', \'' + ${blog.title} + '\')'" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Delete
-            </button>
-        </td>
-    </tr>
-</table>
+<div class="table-wrapper">
+    <table class="table table-success">
+        <tr>
+            <th>STT</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Detail</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="blog,status:${blogPage.content}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${blog.title}"></td>
+            <td th:text="${blog.author}"></td>
+            <td>
+                <button class="btn btn-info" th:attr="onclick='redirectToDetail(\'' + ${blog.id} + '\')'">Detail
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-success" th:attr="onclick='redirectToUpdate(\'' + ${blog.id} + '\')'">Update
+                </button>
+            </td>
+            <td>
+                <button th:attr="onclick='deleteInfo(\'' + ${blog.id} + '\', \'' + ${blog.title} + '\')'" type="button"
+                        class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="pagination-wrapper pagination ">
+    <a th:if="${blogPage.hasPrevious()}" th:href="@{/blogs(page=${blogPage.number - 1},searchName=${searchName})}" class="pagination-button">Previous</a>
+    <span th:text="${blogPage.number+1}"></span>/<span th:text="${blogPage.totalPages}"></span>
+    <a th:if="${blogPage.hasNext()}" th:href="@{/blogs(page=${blogPage.number + 1},searchName=${searchName})}" class="pagination-button">Next</a>
+</div>
+
 <script>
-    function deleteInfo(id,title) {
+    function deleteInfo(id, title) {
         document.getElementById("deleteId").value = id;
         document.getElementById("deleteTitle").innerText = title;
     }

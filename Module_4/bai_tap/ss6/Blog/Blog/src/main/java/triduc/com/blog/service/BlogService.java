@@ -1,7 +1,10 @@
 package triduc.com.blog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import triduc.com.blog.dto.BlogDTO;
 import triduc.com.blog.model.Blog;
 import triduc.com.blog.repository.IBlogRepository;
 
@@ -16,8 +19,13 @@ public class BlogService  implements IBlogService {
     }
 
     @Override
-    public List<Blog> findBlogByTitleContaining(String title) {
-        return blogRepository.findBlogByTitleContaining(title);
+    public List<BlogDTO> findBlogDTOAll() {
+        return blogRepository.findBlogDTO();
+    }
+
+    @Override
+    public Page<Blog> findBlogByTitleContaining(String title, Pageable pageable) {
+        return blogRepository.findBlogByTitleContaining(title,pageable);
     }
 
     @Override

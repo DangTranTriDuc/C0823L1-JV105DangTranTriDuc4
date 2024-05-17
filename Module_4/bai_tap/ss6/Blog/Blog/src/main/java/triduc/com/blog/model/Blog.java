@@ -14,16 +14,18 @@ public class Blog {
     private String author;
 
     private String content;
+    private int categoryId;
 
 
     public Blog() {
     }
 
-    public Blog(int id, String title, String author, String content) {
+    public Blog(int id, String title, String author, String content, int categoryId) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.content = content;
+        this.categoryId = categoryId;
     }
 
     public int getId() {
@@ -56,5 +58,13 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 }
