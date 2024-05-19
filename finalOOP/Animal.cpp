@@ -279,6 +279,7 @@ using namespace std ;
 	    }
 	    void Animal::input() {
 	    	cout << "Enter ID: ";
+	    	cin.ignore();
 	        getline(cin, id);
 	    	
 	        cout << "Enter species: ";
@@ -409,42 +410,44 @@ using namespace std ;
 	             << " Body Temperature: " << this->bodyTemperature
 	             << endl;
 	    }
-	    void move()  { //di_chuyen
+	    void Animal::move()  { //di_chuyen
 	        cout << "Animal is moving." << endl;
 	    }
 	
-	     void sleep()  { //ngu
+	    void Animal::sleep()  { //ngu
 	        cout << "Animal is sleeping." << endl;
 	    }
 	
-	     void digHole()  {//dao_hang
+	    void Animal::digHole()  {//dao_hang
 	        cout << "Animal is digging a hole." << endl;
 	    }
 	
-	     void hunt()  { //san_bat
+	    void Animal::hunt()  { //san_bat
 	        cout << "Animal is hunting." << endl;
 	    }
 	
-	     void reproduce()  {//sinh_san
+	    void Animal::reproduce()  {//sinh_san
 	        cout << "Animal is reproducing." << endl;
 	    }
 	
-	     void glide()  {//mua_luon
+	    void Animal::glide()  {//mua_luon
 	        cout << "Animal is gliding." << endl;
 	    }
 	
-	     void formPack()  { //tao_to
+	    void Animal::formPack()  { //tao_to
 	        cout << "Animal is forming a pack." << endl;
 	    }
 	
-	     void eat()  { //an
+	    void Animal::eat()  { //an
 	        cout << "Animal is eating." << endl;
 	    }
 	
-	     void takeCareOfYoung()  { //cham_soc_con_cai
+	    void Animal::takeCareOfYoung()  { //cham_soc_con_cai
 	        cout << "Animal is taking care of the young." << endl;
 	    }
 	
-	     void swimAndCrawl()  { //boi_va_lan
+	    void Animal::swimAndCrawl()  { //boi_va_lan
 	        cout << "Animal is swimming and crawling." << endl;
 	    }
+	    Animal::~Animal(){}
+	    

@@ -2,7 +2,7 @@
 #include"Animal.h"
 #include"Bird.h"
 using namespace std;
-	Bird::Bird():Animal() {
+	Bird::Bird() : Animal() {
         idOfBird = "";
         migrationPattern = "";
         nestingHabit = "";
@@ -102,6 +102,7 @@ using namespace std;
 	    void Bird::input() {
 	    	Animal::input();
 	        cout << "Enter bird's ID Of Bird: ";
+	        cin.ignore();
 	        getline(cin, idOfBird);
 	        cout << "Enter migration pattern: ";
 	        getline(cin, migrationPattern);
@@ -128,3 +129,4 @@ using namespace std;
 		         << " Hunting Habits:"<<this->huntingHabits
 				 << endl;
 	    }
+	    Bird::~Bird(){}

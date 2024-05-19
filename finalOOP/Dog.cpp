@@ -127,7 +127,7 @@ using namespace std ;
         cout << "Enter dog's breed: ";
         getline(cin, breed);
         cout << "Is the dog trained? (true/false): ";
-        cin >> boolalpha >> trained;
+        cin  >> trained;
         cout << "Enter tail length: ";
         cin >> tailLength;
         cout << "Enter threat level (1-10): ";
@@ -150,3 +150,4 @@ using namespace std ;
         cout << "Fur change frequency: " << furChangeFrequency << endl;
         cout << "IQ: " << IQ << endl;
     }
+    Dog::~Dog(){}

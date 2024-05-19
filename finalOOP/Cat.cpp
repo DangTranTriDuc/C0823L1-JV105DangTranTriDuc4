@@ -135,6 +135,7 @@ using namespace std;
     {
     	Animal::input();
         cout << "Enter cat's ID: ";
+        cin.ignore();
         getline(cin, idOfCat);
         cout << "Enter eye color: ";
         getline(cin, eyeColor);
@@ -143,7 +144,7 @@ using namespace std;
         cout << "Enter claw sharpness (1-10): ";
         cin >> clawSharpness;
         cout << "Can the cat meow? (true/false): ";
-        cin >> boolalpha >> canMeow;
+        cin >>  canMeow;
         cout << "Enter affection level (1-10): ";
         cin >> affectionLevel;
         cout << "Enter hunting habit level (1-10): ";
@@ -162,5 +163,6 @@ using namespace std;
          << "Hunting habit level: " << this->huntingHabit 
 		 << endl;
     }
+    Cat::~Cat(){}
 
 

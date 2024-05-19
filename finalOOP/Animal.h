@@ -99,8 +99,8 @@ class Animal {
 		void setMoodStatus(string& value);
 		float getBodyTemperature();
 		void setBodyTemperature(float value);
-		void input();
-		void output();
+		virtual void input();
+		virtual void output();
 		void move();
 		void sleep();
 		void digHole();
@@ -111,5 +111,6 @@ class Animal {
 		void eat();
 		void takeCareOfYoung();
 		void swimAndCrawl();
+		virtual ~Animal();
 };
 #endif

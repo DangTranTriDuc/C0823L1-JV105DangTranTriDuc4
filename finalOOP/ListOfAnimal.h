@@ -1,5 +1,5 @@
-#ifndef BIRD_H
-#define BIRD_H
+#ifndef LISTOFANIMAL_H
+#define LISTOFANIMAL_H
 #include<bits/stdc++.h>
 #include"Animal.h"
 #include"Cat.h"
@@ -8,11 +8,19 @@
 using namespace std ; 
 class ListOfAnimal {
 	private:
-		vector<Animal> animals ;
-		Dog dog ;
-		Cat cat;
-		Bird bird;
+		vector<Animal*> animals ;
 	public:
+		ListOfAnimal();
 		void mainMenu();
+		void addNewAnimal(Animal* animal);
+		void inputAnimal();
+		void outputAnimal();
+		void searchAnimalByBirthYear();
+		void assessLevelOfExtinction();
+		Animal* findById();
+		void assessLevelOfThreat();
+		void identifyHabitat();
+		void caculateBMI();
+		~ListOfAnimal();
 };
 #endif

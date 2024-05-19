@@ -38,5 +38,6 @@ class Bird: public Animal {
 	    void forage() ;
 		void input();
 		void output();	
+		~Bird();
 };
 #endif

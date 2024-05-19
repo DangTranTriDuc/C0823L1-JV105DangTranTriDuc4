@@ -36,5 +36,6 @@ class Cat : public Animal {
 		void markTerritory();
 		void input();
 		void output(); 
+		~Cat();
 };
 #endif

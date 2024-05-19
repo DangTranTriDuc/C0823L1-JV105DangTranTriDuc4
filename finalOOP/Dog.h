@@ -36,5 +36,6 @@ class Dog : public Animal {
 		void bark();
 		void input();
 		void output();
+		~Dog();
 };
 #endif
