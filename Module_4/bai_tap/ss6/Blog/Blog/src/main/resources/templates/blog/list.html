@@ -81,6 +81,7 @@
 <body>
 <div th:replace="~{layout/layout::navbar}"></div>
 <button class="button" onclick="location.href='/blogs/create'">Add Blog</button>
+<button class="button" onclick="redirectToCategory()">Category</button>
 <h1>Blog List</h1>
 <form action="/blogs" method="get" class="search-form">
     <input name="searchName" placeholder="Enter Search Name" th:value="${param.searchName}">
@@ -92,6 +93,7 @@
             <th>STT</th>
             <th>Title</th>
             <th>Author</th>
+            <th>Category</th>
             <th>Detail</th>
             <th>Update</th>
             <th>Delete</th>
@@ -100,12 +102,14 @@
             <td th:text="${status.count}"></td>
             <td th:text="${blog.title}"></td>
             <td th:text="${blog.author}"></td>
+            <td th:text="${blog.getCategory().getCategoryName()}"></td>
             <td>
                 <button class="btn btn-info" th:attr="onclick='redirectToDetail(\'' + ${blog.id} + '\')'">Detail
                 </button>
             </td>
             <td>
-                <button class="btn btn-success" th:attr="onclick='redirectToUpdate(\'' + ${blog.id} + '\')'">Update
+                <button class="btn btn-success" th:attr="onclick='redirectToUpdate(\'' + ${blog.id} + '\')'">
+                    Update
                 </button>
             </td>
             <td>
@@ -133,9 +137,13 @@
     function redirectToDetail(blogId) {
         window.location.href = '/blogs/detail?id=' + blogId;
     }
-
     function redirectToUpdate(blogId) {
         window.location.href = '/blogs/update?id=' + blogId;
+    }
+
+
+    function redirectToCategory(){
+        window.location.href='/blogs/categories';
     }
 </script>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

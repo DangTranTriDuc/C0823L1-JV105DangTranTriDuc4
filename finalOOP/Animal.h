@@ -19,9 +19,9 @@ class Animal {
 	    string foodType; //loai_thuc_an 
 	    string color; //mau_sac
 	    bool vaccineReaction; //phan_ung_voi_vaccine
-	    string reproductiveCharacteristic;
-	    string nationality; //quoc_tich
-	    string furType; //loai_long
+	    string rationality; //quoc_tich
+	    string feproductiveCharacteristic;
+	    string nurType; //loai_long
 	    string bodyStructure; //cau_truc_co_the
 	    float weight; //can_nang
 	    float height; //chieu_cao

@@ -1,9 +1,6 @@
 package triduc.com.blog.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Blog {
@@ -14,18 +11,28 @@ public class Blog {
     private String author;
 
     private String content;
-    private int categoryId;
 
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Blog() {
     }
 
-    public Blog(int id, String title, String author, String content, int categoryId) {
+    public Blog(int id, String title, String author, String content) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.content = content;
-        this.categoryId = categoryId;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public int getId() {
@@ -58,13 +65,5 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
     }
 }

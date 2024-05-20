@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import triduc.com.blog.dto.BlogDTO;
 import triduc.com.blog.model.Blog;
+import triduc.com.blog.repository.ICategoryRepository;
 import triduc.com.blog.service.IBlogService;
+import triduc.com.blog.service.ICategoryService;
 
 import java.util.List;
 
@@ -21,6 +23,8 @@ import java.util.List;
 public class BlogController {
     @Autowired
     private IBlogService blogService;
+    @Autowired
+    private ICategoryService categoryService;
     @GetMapping("/dto")
     public String showList(ModelMap model){
         List<BlogDTO> blogList=blogService.findBlogDTOAll();
@@ -45,8 +49,8 @@ public class BlogController {
     }
     @GetMapping("/update")
     public String showFormUpdate(@RequestParam int id, Model model){
-        Blog blog=blogService.findById(id);
-        model.addAttribute("blog",blog);
+        model.addAttribute("blog",blogService.findById(id));
+        model.addAttribute("categoryList",categoryService.findAll());
         return "blog/update" ;
     }
     @PostMapping("/update")
@@ -57,6 +61,7 @@ public class BlogController {
     @GetMapping("/create")
     public String showFormCreate(Model model){
         model.addAttribute("blog",new Blog());
+        model.addAttribute("categoryList",categoryService.findAll());
         return "blog/create";
     }
     @PostMapping("/create")

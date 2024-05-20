@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Detail Of Blog  </title>
+    <title>Detail Of Blog </title>
     <th:block th:insert="~{layout/layout::library}"></th:block>
     <style>
         .container {
@@ -13,10 +13,19 @@
             background-color: #f7f7f7;
             margin: 0 auto;
         }
+
         .blog-title {
             text-align: center;
             font-size: 24px;
 
+        }
+        .author-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-label {
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -27,10 +36,16 @@
 </h2>
 <div class="container">
     <div th:text="${blog.content}"></div>
-    <div th:text="${blog.author}"></div>
+    <div class="author-container">
+        <label for="author" class="author-label">-Author:</label>
+        <div id="author" th:text="${blog.author}" class="author-value"></div>
+    </div>
+    <div class="author-container">
+        <label for="category">-Category:</label>
+        <div id="category" th:text="${blog.getCategory().getCategoryName()}" class="author-value"></div>
+    </div>
     <button class="btn btn-primary" onclick="returnToHome()">Return</button>
 </div>
-
 <script>
     function returnToHome() {
         window.location.href = '/blogs';
