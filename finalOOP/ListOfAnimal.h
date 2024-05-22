@@ -21,6 +21,21 @@ class ListOfAnimal {
 		void assessLevelOfThreat();
 		void identifyHabitat();
 		void caculateBMI();
+		void maxHeightOfAnimal();
+		void maxWeightOfAnimal();
+		void deleteAnimal();
+		void sortByBirthYear();
+		void checkAnimalSize();
+		void sumAnimalFourLegs();
+		void sumAnimalFly();
+		void averageHeightOfDogsAndCats();
+		void searchAnimalBySpecies();
+		void exportToFile();
+		void searchAnimalByNationality();
+		void editInfoAnimal();
+		void infoDog(Dog* dog);
+		void infoCat(Cat* cat);
+		void infoBird(Bird* bird);
 		~ListOfAnimal();
 };
 #endif
