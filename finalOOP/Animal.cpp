@@ -380,7 +380,7 @@ using namespace std ;
 	    }
 	    void Animal::output()  {
 	        cout << " ID: " << this->id
-				 << "Species: " << this->species
+				 << " Species: " << this->species
 	             << " Age: " << this->age
 	             << " Birth Year: " << this->birthYear
 	             << " Habitat: " << this->habitat

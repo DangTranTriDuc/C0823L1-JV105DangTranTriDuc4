@@ -142,12 +142,12 @@ using namespace std ;
     void Dog::output() 
     {
         Animal::output();
-        cout << "Dog's ID: " << id << endl;
-        cout << "Breed: " << breed << endl;
-        cout << "Trained: " << boolalpha << trained << endl;
-        cout << "Tail length: " << tailLength << endl;
-        cout << "Threat level: " << threatLevel << endl;
-        cout << "Fur change frequency: " << furChangeFrequency << endl;
-        cout << "IQ: " << IQ << endl;
+        cout << " Dog's ID: " << this->id 
+	         << " Breed: " << this->breed 
+	         << " Trained: "  << this->trained 
+	         << " Tail length: " << this->tailLength 
+	         << " Threat level: " << this->threatLevel 
+	         << " Fur change frequency: " << this->furChangeFrequency 
+	         << " IQ: " << this->IQ << endl;
     }
     Dog::~Dog(){}

@@ -154,13 +154,13 @@ using namespace std;
     void Cat::output() 
     {
     	Animal::output();
-        cout << "Cat's ID: " << this->idOfCat 
-         << "Eye color: " << this->eyeColor 
-         << "Ear type: " << this->earType 
-         << "Claw sharpness: " << this->clawSharpness 
-         << "Can meow: " <<  (this->canMeow ? "Yes" : "No")
-         << "Affection level: " << this->affectionLevel 
-         << "Hunting habit level: " << this->huntingHabit 
+        cout << " Cat's ID: " << this->idOfCat 
+         << " Eye color: " << this->eyeColor 
+         << " Ear type: " << this->earType 
+         << " Claw sharpness: " << this->clawSharpness 
+         << " Can meow: " <<  (this->canMeow ? "Yes" : "No")
+         << " Affection level: " << this->affectionLevel 
+         << " Hunting habit level: " << this->huntingHabit 
 		 << endl;
     }
     Cat::~Cat(){}

@@ -22,12 +22,16 @@ void ListOfAnimal::mainMenu(){
 		cout<<"12.Tinh tong so dong vat 4 chan"<<endl; //17
 		cout<<"13.Tinh tong so dong vat biet bay"<<endl; //18
 		cout<<"14.Xuat file Animal"<<endl;//21
-		cout<<"15.Kiem tra muc do ve sinh Animal"<<endl;//22
+		cout<<"15.Tim animal co chieu cao thap nhat"<<endl;
 		cout<<"16.Danh gia muc do tuyet chung Animal"<<endl;//23
 		cout<<"17.Theo doi chu ky sinh san Animal"<<endl; //24
 		cout<<"18.Xac dinh moi truong song Animal"<<endl;//25
 		cout<<"19.Tim Animal co can nang cao nhat"<<endl; //thay so 5
 		cout<<"20.Tim Animal co chieu cao cao nhat"<<endl;//thay so 14
+		cout<<"21.Tim kiem Animal theo quoc tich"<<endl;
+		cout<<"22.tinh chieu cao trung binh cua dogs va cats"<<endl;
+		cout<<"23.Danh gia tinh cach cua Animal"<<endl;
+		cout<<"24.Kiem tra muc do ve sinh cua Animal"<<endl;
 		cout<<"26.Exit the program."<<endl;
 		cout<<"Choose your option: "; cin>>choice;
 		switch(choice) {
@@ -41,11 +45,14 @@ void ListOfAnimal::mainMenu(){
 				outputAnimal();
 				break;
 			}
-			case 3:{
+			case 3:
+			{
+				editInfoAnimal();
 				break;
 			}	
 			case 4:
         	{
+        		deleteAnimal();
         		break;
         	}
 		    case 5:
@@ -55,14 +62,18 @@ void ListOfAnimal::mainMenu(){
 		    }
 		    case 6:
 		    {
+		    	assessTemperament();
 		    	break;
 		    }
 		    case 7:
 		    {
+		    	Animal* animal = findById();
+		    	animal->output();
 		        break;
 		    }
 		    case 8:
 		    {
+		    	searchAnimalBySpecies();
 		        break;
 		    }
 		    case 9:
@@ -77,27 +88,27 @@ void ListOfAnimal::mainMenu(){
 		    }
 		    case 11:
 		    {
-		            
+		        checkAnimalSize();    
 		        break;
 		    }
 		    case 12:
 		    {
-		            
+		        sumAnimalFourLegs();    
 		        break;
 		    }
 		    case 13:
 		    {
-		            
+		        sumAnimalFly() ;   
 		        break;
 		    }
 		    case 14:
 		    {
-		            
+		        exportToFile()  ;  
 		        break;
 		    }
 		    case 15:
 		    {
-		            
+		        minHeightOfAnimal();    
 		        break;
 		    }
 		    case 16:
@@ -107,7 +118,7 @@ void ListOfAnimal::mainMenu(){
 		    }
 		    case 17:
 		    {
-		            
+		        assessReproductiveCycle();
 		        break;
 		    }
 		    case 18:
@@ -127,27 +138,27 @@ void ListOfAnimal::mainMenu(){
 		    }
 		    case 21:
 		    {
-		            
+		        searchAnimalByNationality();    
 		        break;
 		    }
 		    case 22:
 		    {
-		            
+		        averageHeightOfDogsAndCats();    
 		        break;
 		    }
 		    case 23:
 		    {
-		            
+		        assessTemperament();    
 		        break;
 		    }
 		    case 24:
 		    {
-		            
+		        checkHygieneLevel();
 		        break;
 		    }
 		    case 25:
 		    {
-		            
+		        searchBySpecificFoodType()  ;  
 		        break;
 		    }
 			case 26:
@@ -158,7 +169,6 @@ void ListOfAnimal::mainMenu(){
 		}	
 	}while(flag);
 }
-
 void ListOfAnimal::addNewAnimal(Animal* animal){
 	animals.push_back(animal);
 }
@@ -238,7 +248,7 @@ void ListOfAnimal::searchAnimalByBirthYear(){
 }
 Animal* ListOfAnimal::findById(){
 	string findId;
-	cout<<"Enter find ID:"; getline(cin,findId);
+	cout<<"Enter find ID:"; cin.ignore(); getline(cin,findId);
 	for(Animal* animal:animals){
 		if(animal->getId() == findId){
 			return animal;
@@ -557,17 +567,17 @@ void ListOfAnimal::searchAnimalByNationality() {
 }
 void ListOfAnimal::editInfoAnimal(){
 	Animal* editAnimal= findById();
-	if(Dog* dog = dynamic_cast<Dog*>(animal)){
+	if(Dog* dog = dynamic_cast<Dog*>(editAnimal)){
 			infoDog(dog);
-	}else if (Cat* cat = dynamic_cast<Cat*>(animal)){
-			cat->output();
-	}else if(Bird* bird = dynamic_cast<Bird*>(animal)){
-			bird->output();
+	}else if (Cat* cat = dynamic_cast<Cat*>(editAnimal)){
+			infoCat(cat);
+	}else if(Bird* bird = dynamic_cast<Bird*>(editAnimal)){
+			infoBird(bird);
 	}
 }
 void ListOfAnimal::infoDog(Dog* dog){
+	bool flag = true;
 	do{
-		bool flag = true;
 		int choice ;
 		cout<<"---List Of Attributes---"<<endl;
 		cout<<"1.species"<<endl;
@@ -658,7 +668,7 @@ void ListOfAnimal::infoDog(Dog* dog){
 			    {
 			        int newThreatLevel;
 			        cout<<"Enter new threat Level: ";  
-			        cin>>newThreatLevel
+			        cin>>newThreatLevel;
 			        dog->setThreatLevel(newThreatLevel);
 			        break;
 			    }
@@ -823,7 +833,7 @@ void ListOfAnimal::infoDog(Dog* dog){
 			    	int newRarityLevel;
 			        cout << "Enter new rarity level: ";
 	        		cin >> newRarityLevel;
-	        		Dog->setRarityLevel(newRarityLevel);
+	        		dog->setRarityLevel(newRarityLevel);
 			        break;
 			    }
 			
@@ -859,7 +869,7 @@ void ListOfAnimal::infoDog(Dog* dog){
 			    	bool newTrained ;
 			        cout << "Enter new the dog trained? (0 for false, 1 for true): ";
         			cin  >> newTrained;
-        			dog->isTrained(newTrained);
+        			dog->setTrained(newTrained);
 			        break;
 			    }
 			
@@ -904,8 +914,8 @@ void ListOfAnimal::infoDog(Dog* dog){
 		}while(flag);
 	}
 void ListOfAnimal::infoCat(Cat* cat){
+	bool flag = true;
 	do{
-		bool flag = true;
 		int choice ;
 		cout<<"---List Of Attributes---"<<endl;
 		cout<<"1.species"<<endl;
@@ -997,7 +1007,7 @@ void ListOfAnimal::infoCat(Cat* cat){
 			    {
 			        int newThreatLevel;
 			        cout<<"Enter new threat Level: ";  
-			        cin>>newThreatLevel
+			        cin>>newThreatLevel;
 			        cat->setThreatLevel(newThreatLevel);
 			        break;
 			    }
@@ -1250,8 +1260,8 @@ void ListOfAnimal::infoCat(Cat* cat){
 		}while(flag);
 	}
 void ListOfAnimal::infoBird(Bird* bird){
+	bool flag = true;
 	do{
-		bool flag = true;
 		int choice ;
 		cout<<"---List Of Attributes---"<<endl;
 		cout<<"1.species"<<endl;
@@ -1342,7 +1352,7 @@ void ListOfAnimal::infoBird(Bird* bird){
 			    {
 			        int newThreatLevel;
 			        cout<<"Enter new threat Level: ";  
-			        cin>>newThreatLevel
+			        cin>>newThreatLevel;
 			        bird->setThreatLevel(newThreatLevel);
 			        break;
 			    }
@@ -1531,38 +1541,49 @@ void ListOfAnimal::infoBird(Bird* bird){
 			
 			case 29:
 			    {
-			    	
+			    	string newMigrationPattern ;
+			    	cout << "Enter new migration pattern: "; cin.ignore();
+	        		getline(cin, newMigrationPattern);
+	        		bird->setMigrationPattern(newMigrationPattern);
 			        break;
 			    }
 			
 			case 30:
 			    {
-			    	
+			    	string newNestingHabit ;
+			    	cout << "Enter new nesting habit: "; cin.ignore();
+	        		getline(cin, newNestingHabit);
+	        		bird->setNestingHabit(newNestingHabit);
 			        break;
 			    }
 			
 			case 31:
 			    {
-			    	
+			    	string newVocalization ;
+			    	cout << "Enter new vocalization: "; cin.ignore();
+	        		getline(cin, newVocalization);
+	        		bird->setVocalization(newVocalization);
 			        break;
 			    }
 			
 			case 32:
 			    {
-			    	
+			    	string newWingspan ;
+			    	cout << "Enter wingspan: "; cin.ignore();
+	        		getline(cin, newWingspan);
+	        		bird->setWingspan(newWingspan);
 			        break;
 			    }
 			
 			case 33:
 			    {
-			    	
+			    	string newHuntingHabits ;
+			    	cout << "Enter new Hunting Habits:" ; cin.ignore();
+	        		getline(cin,newHuntingHabits);
+	        		bird->setHuntingHabits(newHuntingHabits);
 			        break;
-			    }
+			    }    
 			case 34:
-				{	
-					break;
-				}    
-			case 35:
 				{
 					flag = false;
 					mainMenu();
@@ -1576,7 +1597,95 @@ void ListOfAnimal::infoBird(Bird* bird){
 			}
 		}while(flag);
 	}	
-	
+void ListOfAnimal::minHeightOfAnimal(){
+	if(animals.empty()){
+		cout<<"Don't have any animals in list !"<<endl;
+	}
+	Animal* animalWithLowestHeight = animals[0];
+	for (size_t i = 1; i < animals.size(); i++) {
+        if (animals[i]->getHeight() < animalWithLowestHeight->getHeight()) {
+            animalWithLowestHeight = animals[i];
+        }
+    }
+    cout<<"Animal has lowest Height"<<animalWithLowestHeight->getHeight()<<endl;
+    animalWithLowestHeight->output();
+}
+void ListOfAnimal::assessTemperament() {
+    Animal* animal = findById();  
+    if (!animal) {  
+        cout << "Animal not found!" << endl;
+        return;
+    }
+    animal->output();  
+    string personality = animal->getPersonality();  
+    cout << "Assessing temperament: ";
+    if (personality == "calm") {
+        cout << "Calm" << endl;
+    } else if (personality == "moderate") {
+        cout << "Moderate" << endl;
+    } else if (personality == "aggressive") {
+        cout << "Aggressive" << endl;
+    } else {
+        cout << "Unknown" << endl;
+    }
+}
+void ListOfAnimal::checkHygieneLevel() {
+	Animal* animal = findById();	
+	if (animal->getFeedingFrequency() > 2) {
+		cout << "- Animal may require more frequent cleaning due to higher food intake."<<endl;
+	} else {
+	    cout << "- Hygiene level assessment inconclusive based on available data"<<endl;
+	}
+}
+void ListOfAnimal::assessReproductiveCycle(){
+	Animal* animal =findById();
+	animal->output();
+	if(animal->getReproductionRate()==1){
+		cout<<"Semelparity"<<endl;
+	}else if (animal->getReproductionRate()==2){
+		cout<<"Iteroparity"<<endl;
+	}
+}
+void ListOfAnimal::searchBySpecificFoodType() {
+    int choice;
+    cout << "---List Of Specific Food Type---" << endl;
+    cout << "1. Herbivore" << endl;
+    cout << "2. Carnivore" << endl;
+    cout << "3. Omnivore" << endl;
+    cout << "Choose the food type to search: ";
+    cin >> choice;
+    string searchFoodType;
+    switch (choice) {
+        case 1:
+            searchFoodType = "Herbivore";
+            break;
+        case 2:
+            searchFoodType = "Carnivore";
+            break;
+        case 3:
+            searchFoodType = "Omnivore";
+            break;
+        default:
+            cout << "Invalid choice!" << endl;
+            break;
+    }
+    vector<Animal*> typeFoodAnimals;
+    for (auto& animal : animals) {
+        if (animal->getFoodType() == searchFoodType) {
+            typeFoodAnimals.push_back(animal);
+        }
+    }
+    cout<<"---List Of "<<searchFoodType<<" ---"<<endl;
+    for(auto& animal : typeFoodAnimals){
+    	animal->output();
+	}
+}
+ListOfAnimal::~ListOfAnimal(){
+	for(Animal* animal:animals){
+		delete animal;
+	}
+	animals.clear();
+}
 	
 	
 	

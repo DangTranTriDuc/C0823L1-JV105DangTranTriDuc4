@@ -120,7 +120,7 @@ using namespace std;
 
 	    void Bird::output()  {
 	    	Animal::output();
-	        cout << "Bird's ID: " << this->idOfBird 
+	        cout << " Bird's ID: " << this->idOfBird 
 		         << " Migration pattern: " << this->migrationPattern 
 		         << " Nesting habit: " << this->nestingHabit 
 		         << " Species: " << this->species 

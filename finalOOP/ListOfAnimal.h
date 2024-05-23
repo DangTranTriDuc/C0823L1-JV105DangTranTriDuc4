@@ -36,6 +36,11 @@ class ListOfAnimal {
 		void infoDog(Dog* dog);
 		void infoCat(Cat* cat);
 		void infoBird(Bird* bird);
+		void minHeightOfAnimal();
+		void assessTemperament();
+		void checkHygieneLevel();
+		void assessReproductiveCycle();
+		void searchBySpecificFoodType();
 		~ListOfAnimal();
 };
 #endif
