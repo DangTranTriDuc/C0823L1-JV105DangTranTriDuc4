@@ -1,17 +1,21 @@
 package com.codegym.demo_spring_data_jpa.dto;
 
 import com.codegym.demo_spring_data_jpa.model.Classes;
+import com.codegym.demo_spring_data_jpa.validate.Group1;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 public class StudentDTO implements Validator {
+
     private int id;
     private int gender;
 //    @NotEmpty(message = "Require not empty")
 //    @Pattern(regexp = "^[A-Z][a-z]+$", message = "Not match regex")
     private String name;
-
 
     private Integer age;
     private Classes classes;
@@ -24,7 +28,6 @@ public class StudentDTO implements Validator {
         this.age = age;
     }
 
-    @NotNull(message = "require not null")
 
     public Classes getClasses() {
         return classes;
