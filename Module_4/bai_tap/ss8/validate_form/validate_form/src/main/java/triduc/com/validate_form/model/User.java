@@ -19,6 +19,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @NotEmpty(message = "Không được để trống")
     @Size(min = 3, max = 45, message = "Độ dài của Firstname phải từ 3 đến 45 ký tự")
     private String firstName;
@@ -34,8 +35,4 @@ public class User {
 
     @EmailConstraint(message = "Email không hợp lệ")
     private String email;
-
-
-
-
 }

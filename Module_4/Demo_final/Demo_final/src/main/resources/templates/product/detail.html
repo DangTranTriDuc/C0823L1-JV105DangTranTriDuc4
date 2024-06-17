@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Product</title>
+    <th:block th:insert="~{layout/layout::library}"></th:block>
+    <style>
+        .product-details {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .product-details h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .product-details label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-details > div {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .product-details button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-details button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+<body>
+<div class="product-details">
+    <h1>Product Details</h1>
+
+    <label for="id">-ID:</label>
+    <div id="id" th:text="${product.id}"></div>
+
+    <label for="productName">-Product Name:</label>
+    <div id="productName" th:text="${product.productName}"></div>
+
+    <label for="color">-Color:</label>
+    <div id="color" th:text="${product.color}"></div>
+
+    <label for="price">-Price:</label>
+    <div id="price" th:text="${product.price}"></div>
+
+    <label for="quantity">-Quantity:</label>
+    <div id="quantity" th:text="${product.quantity}"></div>
+
+    <label for="category">-Category:</label>
+    <div id="category" th:text="${product.getCategory().getCategoryName()}"></div>
+
+    <label for="manufacture">-Manufacture:</label>
+    <div id="manufacture" th:text="${product.getManufacture().getManufactureName()}"></div>
+
+    <label for="description">-Description:</label>
+    <div id="description" th:text="${product.description}"></div>
+
+    <button class="btn btn-primary" onclick="returnToHome()">Return</button>
+</div>
+
+
+<script>
+    function returnToHome() {
+        window.location.href = '/products';
+    }
+</script>
+</body>
+</html>

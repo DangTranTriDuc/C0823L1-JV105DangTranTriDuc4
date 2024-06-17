@@ -2,15 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6b0ded7-31b0-438e-b47e-493b2e26ae8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../validate_form/validate_form/src/main/java/triduc/com/validate_form/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../validate_form/validate_form/src/main/resources/templates/user/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../validate_form/validate_form/src/main/resources/templates/user/result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_spring_data_jpa/src/main/java/com/codegym/demo_spring_data_jpa/dto/StudentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_spring_data_jpa/src/main/java/com/codegym/demo_spring_data_jpa/dto/StudentDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/ServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/dto/ProductDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/model/Manufacture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/repository/ICategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/repository/IManufactureRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/service/ICategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/service/IManufactureService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/service/impl/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/service/impl/ManufactureService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/service/impl/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/validation/SpecialCharacterConstraint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/java/triduc/com/demo_final/validation/SpecialCharacterValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/resources/templates/layout/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/resources/templates/product/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/resources/templates/product/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/resources/templates/product/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Demo_final/Demo_final/src/main/resources/templates/product/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validate_form/validate_form/src/main/java/triduc/com/validate_form/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validate_form/validate_form/src/main/java/triduc/com/validate_form/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../validate_form/validate_form/src/main/java/triduc/com/validate_form/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validate_form/validate_form/src/main/java/triduc/com/validate_form/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../validate_form/validate_form/src/main/java/triduc/com/validate_form/repository/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validate_form/validate_form/src/main/java/triduc/com/validate_form/repository/IUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../validate_form/validate_form/src/main/java/triduc/com/validate_form/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validate_form/validate_form/src/main/java/triduc/com/validate_form/service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../validate_form/validate_form/src/main/java/triduc/com/validate_form/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validate_form/validate_form/src/main/java/triduc/com/validate_form/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../validate_form/validate_form/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../validate_form/validate_form/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../thong_tin/TKB,Casestudy,Câu hỏi audit.rar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +68,8 @@
       <updated>1716214082323</updated>
       <workItem from="1716214083371" duration="12000" />
       <workItem from="1716809917029" duration="11000" />
+      <workItem from="1717158071304" duration="129000" />
+      <workItem from="1717413329030" duration="23000" />
     </task>
     <servers />
   </component>

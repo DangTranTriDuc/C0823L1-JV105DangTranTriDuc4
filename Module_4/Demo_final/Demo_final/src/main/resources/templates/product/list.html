@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Of Product</title>
+    <link th:href="@{/bootstrap-5.3.3-dist/css/bootstrap.css}" rel="stylesheet"/>
+    <script th:src="@{/bootstrap-5.3.3-dist/js/bootstrap.js}" crossorigin="anonymous"></script>
+    <th:block th:insert="~{layout/layout::library}"></th:block>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <style>
+        .pagination-wrapper {
+            position: absolute;
+            bottom: 200px;
+            right: 0;
+            padding: 10px;
+        }
+
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+
+        .pagination-button:hover {
+            background-color: #007bff;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+
+        .search-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .search-form input[name="searchProductName"] {
+            padding: 8px 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+            margin-right: 10px;
+        }
+
+        .search-form select[name="searchManufacture"] {
+            padding: 8px 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{layout/layout::navbar}"></div>
+<button class="button" onclick="location.href='/products/create'">Add Product</button>
+<form action="/products" method="get" class="search-form">
+    <input name="searchProductName" placeholder="Enter Search Name" th:value="${searchProductName}">
+    <select name="searchManufacture">
+        <option th:selected="${searchManufacture==''}" value="">Tất cả</option>
+        <option th:each="manufacture : ${manufactureList}"
+                th:value="${manufacture.manufactureName}"
+                th:text="${manufacture.manufactureName}"
+                th:selected="${searchManufacture==manufacture.manufactureName}"></option>
+    </select>
+    <button type="submit" class="search-button">Search</button>
+</form>
+<table class="table table-success">
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Color</th>
+        <th>Quantity</th>
+        <th>Manufacture Date</th>
+        <th>Detail</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="product,status:${productPage.content}">
+        <td th:text="${status.count}"></td>
+        <td th:text="${product.productName}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.color}"></td>
+        <td th:text="${product.quantity}"></td>
+        <td th:text="${product.manufactureDate}"></td>
+        <td>
+            <button class="btn btn-info" th:attr="onclick='redirectToDetail(\'' + ${product.id} + '\')'">
+                Detail
+            </button>
+        </td>
+        <td>
+            <button class="btn btn-success" th:attr="onclick='redirectToUpdate(\'' + ${product.id} + '\')'">
+                Update
+            </button>
+            <button th:attr="onclick='deleteInfo(\'' + ${product.id} + '\', \'' + ${product.productName} + '\')'"
+                    type="button"
+                    class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Delete
+            </button>
+        </td>
+    </tr>
+</table>
+<div class="pagination-wrapper pagination ">
+    <a th:if="${productPage.hasPrevious()}"
+       th:href="@{/products(page=${productPage.number - 1},searchProductName=${searchProductName},searchManufacture=${searchManufacture})}"
+       class="pagination-button">Previous</a>
+    <span th:text="${productPage.number+1}"></span>/<span th:text="${productPage.totalPages}"></span>
+    <a th:if="${productPage.hasNext()}"
+       th:href="@{/products(page=${productPage.number + 1},searchProductName=${searchProductName},searchManufacture=${searchManufacture})}"
+       class="pagination-button">Next</a>
+</div>
+<script>
+    function deleteInfo(id, name) {
+        document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
+    }
+    function redirectToDetail(productId) {
+        window.location.href = '/products/detail?id=' + productId;
+    }
+    function redirectToUpdate(productId) {
+        window.location.href = '/products/update?id=' + productId;
+    }
+    function redirectToDetail1(productId) {
+
+    }
+</script>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/products/delete" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="deleteId" name="deleteId">
+                    <span>Bạn có muốn xoá </span><span style="color:red;" id="deleteName"></span> không?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">DELETE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

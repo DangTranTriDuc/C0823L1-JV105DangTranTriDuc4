@@ -25,7 +25,6 @@ public class UserController {
     }
     @PostMapping("/register")
     public String save(@Validated @ModelAttribute User user, BindingResult bindingResult, RedirectAttributes redirectAttributes){
-
         if (bindingResult.hasErrors()){
             return "user/index";
         }
